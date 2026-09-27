@@ -1,0 +1,250 @@
+@font-face {
+    font-family: "myfont";
+    src: local(Sahel-FD), url("font/Sahel-FD.woff");
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: myfont, sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family: myfont, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.pg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    background-color: rgb(215, 215, 223);
+    padding: 24px 40px;
+    border-radius: 100px;
+    margin: 32px 42px 30px 58px;
+    box-shadow: -33px 46px 12px 0px #aaa;
+    position: sticky;
+    top: 5px;
+}
+
+main {
+    margin: 0 42px 32px 58px;
+}
+
+.yt {
+    background-color: rgb(215, 215, 223);
+    border-radius: 60px;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.yr {
+    background-color: rgb(177, 177, 180);
+    border-radius: 50%;
+    width: min(60vw, 300px);
+    aspect-ratio: 1 / 1;
+    transition: box-shadow 0.2s ease;
+}
+
+.yr:hover {
+    box-shadow: 0 0 5px 3px #000000;
+}
+
+@media (max-width: 700px) {
+    .pg {
+        border-radius: 32px;
+        padding: 16px 24px;
+        margin: 16px;
+        justify-content: center;
+        text-align: center;
+    }
+    main {
+        margin: 0 16px 24px;
+    }
+}
+
+/* --- پنل کاربری --- */
+.panel-btn {
+    font-family: myfont, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    padding: 0;
+}
+
+.panel-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 40;
+}
+
+.user-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(360px, 90vw);
+    background: #fff;
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+    z-index: 50;
+    padding: 24px;
+    overflow-y: auto;
+    transform: translateX(0);
+}
+
+.panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.panel-close {
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.product-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.product-form input {
+    font-family: myfont, sans-serif;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.product-form button {
+    font-family: myfont, sans-serif;
+    background: rgb(60, 60, 70);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.product-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.product-list img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ddd;
+    flex-shrink: 0;
+}
+
+.product-list .p-name {
+    flex: 1;
+    font-size: 14px;
+}
+
+.product-list .p-remove {
+    background: none;
+    border: none;
+    color: #b33;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* --- دایره‌ی چرخشی محصولات --- */
+.yr {
+    position: relative;
+    overflow: hidden;
+}
+
+.circle-empty {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.circle-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 10px;
+    text-align: center;
+}
+
+.circle-slide.active {
+    opacity: 1;
+}
+
+.circle-slide img {
+    width: 60%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.circle-slide .s-name {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.circle-slide .s-price {
+    font-size: 13px;
+    color: #333;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .circle-slide { transition: none; }
+}

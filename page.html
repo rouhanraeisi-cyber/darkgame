@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+   <meta charset="utf-8">
+   <title>  shop </title>
+   <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+   <nav class="pg">
+      <div class="pp"><a href="#">محصولات جدید</a></div>
+      <div class="pt"><button id="panelToggle" class="panel-btn">پنل کاربری</button></div>
+      <div class="pa"><a href="#">سبد خرید</a></div>
+   </nav>
+
+   <main>
+      <div class="yt">
+         <div class="yr" id="circle">
+            <div class="circle-empty" id="circleEmpty">هنوز محصولی اضافه نشده</div>
+         </div>
+      </div>
+   </main>
+
+   <div id="panelOverlay" class="panel-overlay" hidden></div>
+   <aside id="userPanel" class="user-panel" hidden>
+      <div class="panel-head">
+         <h2>پنل کاربری</h2>
+         <button id="panelClose" class="panel-close" aria-label="بستن">×</button>
+      </div>
+
+      <form id="productForm" class="product-form">
+         <label>نام محصول
+            <input type="text" id="prodName" required>
+         </label>
+         <label>قیمت (تومان)
+            <input type="text" id="prodPrice">
+         </label>
+         <label>تصویر محصول
+            <input type="file" id="prodImage" accept="image/*">
+         </label>
+         <button type="submit">افزودن به دایره</button>
+      </form>
+
+      <ul id="productList" class="product-list"></ul>
+   </aside>
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="script.js"></script>
+</body>
+
+</html>
